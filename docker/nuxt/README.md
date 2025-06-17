@@ -1,7 +1,21 @@
+# Nuxt + mysql + docker
+
+
+```bash
+# Nuxt 프로젝트 생성 (이미 있다면 생략)
+npx nuxi init nuxt-app
+cd nuxt-app
+pnpm install
+
+# Prisma 및 관련 패키지 설치
+pnpm add -D prisma
+pnpm add @prisma/client
+```
+
+
 # Nuxt Minimal Starter
 
-books - Ultimate-nuxtjs-for-full-stack-web-applications-build-production
-
+Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
 
 ## Setup
 

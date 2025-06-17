@@ -1,0 +1,31 @@
+FROM node:20-alpine
+
+# 작업 디렉토리
+WORKDIR /app/nuxt
+
+# 환경변수 및 prisma schema 복사
+COPY ./nuxt/prisma ./prisma
+COPY ./nuxt/.env .env
+
+# 의존성 설치용 파일만 먼저 복사
+COPY ./nuxt/package.json ./
+COPY ./nuxt/pnpm-lock.yaml ./
+
+# pnpm 설치 및 의존성 설치
+RUN npm install -g pnpm && pnpm install
+
+# Prisma client 생성
+RUN npx prisma generate --schema=./prisma/schema.prisma
+
+# 전체 Nuxt 프로젝트 복사
+COPY ./nuxt ./
+
+# 빌드
+RUN pnpm build
+
+# 포트 노출
+EXPOSE 3000
+
+# SSR 실행
+# CMD ["pnpm", "start"]
+CMD ["pnpm", "dev"]
