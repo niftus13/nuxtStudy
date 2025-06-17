@@ -1,7 +1,7 @@
 <template>
     <div>
       <AppHeader />
-      <main class="container mx-auto p-4">
+      <main class="main-container">
         <slot />
       </main>
       <AppFooter />
@@ -12,3 +12,12 @@
   import AppHeader from '~/components/AppHeader.vue'
   import AppFooter from '~/components/AppFooter.vue'
   </script>
+
+<style>
+.main-container {
+  max-width: 1024px;  /* Tailwind의 container 기본 max-width */
+  margin-left: auto;
+  margin-right: auto;
+  padding: 1rem;
+}
+</style>
