@@ -17,5 +17,11 @@ export default defineNuxtConfig({
     },
   },
 
+  // app 디렉토리로 변경
+  // routeRules: {
+  //   "/api/**": {
+  //     cors: true,
+  //   },
+  // },
   
 });
