@@ -13,10 +13,5 @@ export const useBoard = () => {
     }
   };
 
-  if (process.client) {
-    onMounted(fetchBoards);
-  } else {
-    onServerPrefetch(fetchBoards);
-  }
   return { boards, fetchBoards, error}
 };
