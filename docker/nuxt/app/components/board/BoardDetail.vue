@@ -12,12 +12,19 @@
 </template>
 
 <script setup lang="ts">
+interface Post {
+  id: number
+  title: string
+  content: string
+}
 
-defineProps<{
+const props = defineProps<{
     id:number,
 }>()
 
-const {data: post, pending, error} = await useFetch(() => `/api/board/${id}`)
+const { data: post, pending, error } = await useFetch<Post>(
+  () => `/api/board/${props.id}`
+)
 
 </script>
 
