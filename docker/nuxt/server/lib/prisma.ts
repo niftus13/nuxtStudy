@@ -1,4 +1,4 @@
-// server/lib/prisma.ts
+// server/lib/prisma.ts -> Prisma Singleton
 import { PrismaClient } from "@prisma/client";
 
 // 타입 확장

@@ -1,12 +1,11 @@
 <template>
-    <div v-if="board">
-        <h1></h1>
+    <div>
+        <h1>ABOUT PAGE</h1>
+
     </div>
 </template>
 
 <script setup>
-
-
 
 </script>
 

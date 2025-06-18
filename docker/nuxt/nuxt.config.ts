@@ -2,7 +2,7 @@
 export default defineNuxtConfig({
 
   //dir : 'app/'
-  srcDir: 'app/',
+  srcDir: 'app',
 
   // ssr : true
   ssr: true,
