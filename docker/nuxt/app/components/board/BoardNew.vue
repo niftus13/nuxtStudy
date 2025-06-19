@@ -11,7 +11,7 @@
 </template>
 
 <script setup lang="ts">
-import { usePostForm } from '~/composibles/usePostForm';
+import { usePostForm } from '~/composables/usePostForm';
 
 
 const {title, content, error, createPost} = usePostForm()
