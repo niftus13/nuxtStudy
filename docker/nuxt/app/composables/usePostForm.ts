@@ -1,4 +1,5 @@
 
+
 export const usePostForm = () => {
     const title = ref('')
     const content = ref('')
@@ -10,7 +11,7 @@ export const usePostForm = () => {
         error.value = '제목과 내용을 입력하세요'
         return
       }
-  
+      
       try {
         await $fetch('/api/board', {
           method: 'POST',

@@ -16,6 +16,7 @@
 defineProps<{
     posts: Array<{ id: number, title: string}>
 }>()
+
 </script>
 
 <style scoped>
