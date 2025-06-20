@@ -1,9 +1,8 @@
 <template>
     <div>
         <h2>BoardDetail</h2>
-        <div v-if="pending">불러오는중 ..</div>
-        <div v-else-if="error">오류발생</div>
-        <div v-else-if="post">
+
+        <div v-if="post">
             <h1>{{ post.title }}</h1>
             <p>{{ post.content }}</p>
         </div>
@@ -25,6 +24,7 @@ const props = defineProps<{
 const { data: post, pending, error } = await useFetch<Post>(
   () => `/api/board/${props.id}`
 )
+console.log(error)
 
 </script>
 

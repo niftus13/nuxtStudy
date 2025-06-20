@@ -1,6 +1,6 @@
 <template>
     <footer class="app-footer">
-      © 2025 커뮤니티. All rights reserved.
+      <div class="text">© 2025 커뮤니티. All rights reserved.</div>
     </footer>
 </template>
 
@@ -16,5 +16,6 @@
   padding: 1rem;
   margin-top: 2.5rem;
   color: #555;
+  height: 50px;
 }
 </style>
