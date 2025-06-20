@@ -1,36 +1,45 @@
 
 
-export const usePostForm = () => {
-    const title = ref('')
-    const content = ref('')
-    const error = ref('')
-    const router = useRouter()
-  
-    const createPost = async () => {
-      if (!title.value || !content.value) {
-        error.value = '제목과 내용을 입력하세요'
-        return
-      }
-      
-      try {
-        await $fetch('/api/board', {
-          method: 'POST',
-          body: {
-            title: title.value,
-            content: content.value
-          }
-        })
-        router.push('/board')
-      } catch (err: any) {
-        error.value =
-          err?.data?.message || '게시글 작성 중 오류가 발생했습니다.'
-      }
+
+export const usePostForm = (options?: {
+  initial?: { title?: string; content?: string };
+  postId?: number;
+}) => {
+  const title = ref(options?.initial?.title || "");
+  const content = ref(options?.initial?.content || "");
+  const error = ref("");
+  const router = useRouter();
+
+  const submit = async () => {
+    if (!title.value || !content.value) {
+      error.value = "제목과 내용을 입력하세요";
+      return;
     }
-  
-    return {
-      title,
-      content,
-      error,
-      createPost
+
+    try {
+      const isEdit = !!options?.postId;
+      const url = isEdit ? `/api/board/${options.postId}` : "/api/board";
+      const method = isEdit ? "PUT" : "POST";
+
+      await $fetch(url, {
+        method,
+        body: {
+          title: title.value,
+          content: content.value,
+        },
+      });
+
+      alert(isEdit ? "수정 완료!" : "작성 완료!");
+      router.push(isEdit ? `/board/${options.postId}` : "/board");
+    } catch (err: any) {
+      error.value = err?.data?.message || "처리 중 오류 발생";
     }
-  }
+  };
+
+  return {
+    title,
+    content,
+    error,
+    submit,
+  };
+};
