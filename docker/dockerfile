@@ -12,8 +12,6 @@ COPY ./nuxt/pnpm-lock.yaml ./
 COPY ./nuxt/prisma ./prisma
 COPY ./nuxt/.env .env
 
-
-
 # pnpm 설치 및 의존성 설치
 RUN npm install -g pnpm && pnpm install
 
