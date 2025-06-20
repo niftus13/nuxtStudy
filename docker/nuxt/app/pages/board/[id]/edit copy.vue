@@ -20,5 +20,6 @@
     const id = Number(route.params.id)
 
     const {data : post, error} = await useFetch(`/api/board/${id}`)
+    
 </script>
 
