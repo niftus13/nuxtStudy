@@ -1,14 +1,14 @@
-<template>
-    <div>
-        <h1>login</h1>
+    <template>
+        <div>
+            <h1>login</h1>
 
-    </div>
-</template>
+        </div>
+    </template>
 
-<script setup>
+    <script setup>
 
-</script>
+    </script>
 
-<style scoped>
+    <style scoped>
 
-</style>
+    </style>
